@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "bugsnag-angular": "file:..",
-    "bugsnag-js": "file:../../bugsnag-js",
+    "bugsnag-js": "^4.0.0-15",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"

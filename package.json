@@ -6,6 +6,8 @@
   "browser": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "preversion": "npm run test",
+    "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
     "build": "tsc -p .",
     "lint": "tslint -p .",
     "test": "echo TODO"

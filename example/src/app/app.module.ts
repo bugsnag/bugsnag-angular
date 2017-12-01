@@ -4,8 +4,7 @@ import bugsnag from 'bugsnag-js';
 import createPlugin from 'bugsnag-angular';
 
 const bugsnagClient = bugsnag('api_key');
-const BugsnagErrorHandler = bugsnagClient.use(createPlugin(ErrorHandler));
-console.log(BugsnagErrorHandler)
+const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
 
 import { AppComponent } from './app.component';
 

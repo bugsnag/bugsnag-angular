@@ -4,7 +4,7 @@ import { Client, IPlugin } from "bugsnag-js";
 function createPlugin(): IPlugin {
   return {
     init: (client: Client): typeof ErrorHandler => {
-      class BugsnagErrorHandler implements ErrorHandler {
+      class BugsnagErrorHandler extends ErrorHandler {
         public handleError(error: any) {
           const handledState = {
             severity: "error",

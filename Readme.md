@@ -30,8 +30,18 @@ const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
 // ... other imports omitted for brevity
 
 @NgModule({
-  // Pass the BugsnagErrorHandler class along to the providers for your module
+  /* Pass the BugsnagErrorHandler class along to the providers for your module */
   providers: [ { provide: ErrorHandler, useClass: BugsnagErrorHandler } ]
   /* other properties passed to the decorator omitted for brevity */
 })
 ```
+
+## Support
+
+* Check out the [documentation](https://docs.bugsnag.com/platforms/browsers/)
+* [Search open and closed issues](https://github.com/bugsnag/bugsnag-angular/issues?q=is%3Aissue) for similar problems
+* [Report a bug or request a feature](https://github.com/bugsnag/bugsnag-angular/issues/new)
+
+## License
+
+The Bugsnag JS library and official plugins are free software released under the MIT License. See [LICENSE.txt](LICENSE.txt) for details.

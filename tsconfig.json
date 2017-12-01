@@ -1,7 +1,7 @@
 {
   "files": [ "./src/index.ts" ],
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ES6",
     "lib": [ "ES5", "ES6", "DOM" ],
     "allowJs": false,
     "declaration": true,

@@ -10,9 +10,9 @@ export class AppComponent {
   doARenderError = false;
 
   triggerRenderError() {
-    this.doARenderError = true
+    this.doARenderError = true;
     setTimeout(function () {
-      this.doARenderError = false
-    }.bind(this), 100)
+      this.doARenderError = false;
+    }.bind(this), 100);
   }
 }

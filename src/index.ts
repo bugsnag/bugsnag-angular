@@ -27,7 +27,7 @@ function createPlugin(): IPlugin {
           }
 
           client.notify(report);
-          console.error(error);
+          ErrorHandler.prototype.handleError.call(this, error);
         }
       }
       return BugsnagErrorHandler;

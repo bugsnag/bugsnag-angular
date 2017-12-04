@@ -3,7 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import bugsnag from 'bugsnag-js';
 import createPlugin from 'bugsnag-angular';
 
-const bugsnagClient = bugsnag('api_key');
+const bugsnagClient = bugsnag('API_KEY');
 const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
 
 import { AppComponent } from './app.component';

@@ -24,7 +24,7 @@ import bugsnag from 'bugsnag-js';
 import createPlugin from 'bugsnag-angular';
 
 // configure Bugsnag ASAP, before any other imports
-const bugsnagClient = bugsnag('api_key');
+const bugsnagClient = bugsnag('API_KEY');
 const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
 
 // ... other imports omitted for brevity
@@ -35,6 +35,8 @@ const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
   /* other properties passed to the decorator omitted for brevity */
 })
 ```
+
+See the [example](example) for more info.
 
 ## Support
 

@@ -1,28 +1,39 @@
-# Example
+# Bugsnag: Angular Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
+This example shows how you can use the Bugsnag JavaScript notifier with
+[Angular 2+](https://angular.io/).
 
-## Development server
+Whilst the notifier reports any errors that are uncaught, there are certain errors
+within Angular that get caught by its own error handler and only logged to the console.
+These errors will never make it to Bugsnag by themselves and so require a little
+wiring up. This is where the `bugsnag-angular` plugin steps in…
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Run `ng serve` for a dev server and navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Try this out with [your own Bugsnag account](https://app.bugsnag.com/user/new)!
+You'll be able to see how the errors are reported in the dashboard, how breadcrumbs
+are left, how errors are grouped and how they relate to the original source.
 
-## Build
+To get set up, follow the instructions below. Don't forget to replace the placeholder
+API token with your own!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Clone the repo and `cd` this this directory:
+    ```sh
+    git clone git@github.com:bugsnag/bugsnag-angular.git
+    cd bugsnag-angular
+    ```
+1. Install the dependencies (with either npm or yarn):
+    ```sh
+    npm i
+    ```
+    ```sh
+    yarn
+    ```
+1. Replace the `API_KEY` placeholder in [app.module.ts](src/app/app.module.ts) with your actual API key.
+1. Build the application and start the development web server:
+    ```sh
+    npm start
+    ```
+1. View the example page which will (most likely) be served at: http://localhost:4200/

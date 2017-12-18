@@ -25,9 +25,12 @@
   "devDependencies": {
     "@angular/core": "^5.0.3",
     "angular": "^1.6.7",
-    "bugsnag-js": "^4.0.0-15",
+    "bugsnag-js": "^4.0.3",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "bugsnag-js": "^4.0.3"
   },
   "dependencies": {
     "rxjs": "^5.5.2",

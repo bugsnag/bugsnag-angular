@@ -1,6 +1,6 @@
 {
   "name": "bugsnag-angular",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Angular integration for bugsnag-js",
   "main": "dist/index.js",
   "browser": "dist/index.js",

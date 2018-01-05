@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import bugsnag from 'bugsnag-js';
+import bugsnagClient from './bugsnag';
 import createPlugin from 'bugsnag-angular';
 
-const bugsnagClient = bugsnag('API_KEY');
 const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
 
 import { AppComponent } from './app.component';

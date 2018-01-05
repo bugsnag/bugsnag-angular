@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import bugsnagClient from './bugsnag';
 
 @Component({
   selector: 'app-root',

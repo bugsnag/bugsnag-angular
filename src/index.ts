@@ -1,9 +1,10 @@
-import { ErrorHandler } from "@angular/core";
+import { ErrorHandler, Injectable } from "@angular/core";
 import { Bugsnag } from "bugsnag-js";
 
 function createPlugin(): Bugsnag.IPlugin {
   return {
     init: (client: Bugsnag.Client): typeof ErrorHandler => {
+      @Injectable()
       class BugsnagErrorHandler extends ErrorHandler {
         public handleError(error: any) {
           const handledState = {

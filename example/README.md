@@ -22,7 +22,7 @@ API token with your own!
 1. Clone the repo and `cd` this this directory:
     ```sh
     git clone git@github.com:bugsnag/bugsnag-angular.git
-    cd bugsnag-angular
+    cd bugsnag-angular/example
     ```
 1. Install the dependencies (with either npm or yarn):
     ```sh

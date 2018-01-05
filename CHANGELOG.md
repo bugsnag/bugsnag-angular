@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 (05-01-2018)
+
+### Bug fixes
+
+* Add `@Injectable` decorator to `BugsnagErrorHandler` to fix DI error
+
 ## 1.0.1 (18-12-2017)
 
 ### Bug fixes

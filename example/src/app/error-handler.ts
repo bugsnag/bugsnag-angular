@@ -1,5 +1,5 @@
 import { Bugsnag } from 'bugsnag-js';
-import { ErrorHandler, Injectable } from '@angular/core';
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
 
 @Injectable()
 export class BugsnagErrorHandler extends ErrorHandler {

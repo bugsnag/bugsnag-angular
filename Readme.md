@@ -20,18 +20,22 @@ In your the root of your angular app, typically `app.module.ts`:
 
 ```typescript
 // Import bugsnag-js and bugsnag-angular
-import bugsnag from 'bugsnag-js';
-import createPlugin from 'bugsnag-angular';
+import BugsnagErrorHandler from 'bugsnag-angular'
+import bugsnag from 'bugsnag-js'
 
 // configure Bugsnag ASAP, before any other imports
-const bugsnagClient = bugsnag('API_KEY');
-const BugsnagErrorHandler = bugsnagClient.use(createPlugin());
+const bugsnagClient = bugsnag('API_KEY')
+
+// create a factory which will return the bugsnag error handler
+export function errorHandlerFactory() {
+  return new BugsnagErrorHandler(bugsnagClient)
+}
 
 // ... other imports omitted for brevity
 
 @NgModule({
   /* Pass the BugsnagErrorHandler class along to the providers for your module */
-  providers: [ { provide: ErrorHandler, useClass: BugsnagErrorHandler } ]
+  providers: [ { provide: ErrorHandler, useFactory: errorHandlerFactory } ]
   /* other properties passed to the decorator omitted for brevity */
 })
 ```

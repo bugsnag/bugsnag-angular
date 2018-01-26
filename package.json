@@ -10,7 +10,7 @@
     "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
     "build": "ngc -p .",
     "lint": "tslint -p .",
-    "test": "echo TODO"
+    "test": "tape test/integration.test.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,14 @@
   },
   "homepage": "https://github.com/bugsnag/bugsnag-angular#readme",
   "devDependencies": {
+    "@angular/cli": "^1.6.6",
+    "@angular/compiler": "^5.2.2",
+    "@angular/compiler-cli": "^5.2.2",
     "@angular/core": "^5.0.3",
     "angular": "^1.6.7",
     "bugsnag-js": "^4.2.0",
+    "puppeteer": "^1.0.0",
+    "tape": "^4.8.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2"
   },

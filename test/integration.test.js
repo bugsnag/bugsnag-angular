@@ -61,6 +61,7 @@ function addTests () {
         const end = async err => {
           console.log('test: end', err ? '(with err)' : '(without err)')
           /*await */browser.close()
+          browser.disconnect()
           console.log('test: browser closed')
           killServer()
           console.log('test: server stopped')

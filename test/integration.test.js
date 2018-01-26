@@ -59,6 +59,7 @@ function addTests () {
     puppeteer.launch()
       .then(async browser => {
         const end = async err => {
+          console.log('test harness: end', err ? '(with err)' : '(without err)')
           await browser.close()
           killServer()
           t.end(err)

@@ -58,24 +58,28 @@ function addTests () {
 
     puppeteer.launch()
       .then(async browser => {
+        const end = async err => {
+          await browser.close()
+          killServer()
+          t.end(err)
+        }
+
         const page = await browser.newPage()
 
-        page.on('console', msg => {
+        page.on('console', async msg => {
           try {
-            if (msgs > 0) return t.end(new Error('multiple logs received'))
+            if (msgs > 0) return await end(new Error('multiple logs received'))
             t.equal(msg.type(), expected.type)
             t.equal(msg.text(), expected.text)
+            setTimeout(async () => {
+              await end()
+            }, 5000)
           } catch (err) {
-            console.log(err)
-            killServer()
-            browser.close()
-            t.end(err)
+            await end(err)
           }
         })
 
         await page.goto('http://localhost:4200')
-        await browser.close()
-        killServer()
       })
       .catch(err => {
         killServer()

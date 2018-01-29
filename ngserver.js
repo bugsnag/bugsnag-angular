@@ -11,6 +11,7 @@ function runServer () {
     if (/webpack: Compiled successfully\./.test(data)) proc.emit('ng:ready')
   })
   proc.stderr.on('data', data => console.log('' + data))
+  proc.unref()
   return proc
 }
 

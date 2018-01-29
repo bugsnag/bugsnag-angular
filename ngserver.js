@@ -5,7 +5,7 @@ const { exec, spawn } = require('child_process')
 // run ng serve
 function runServer () {
   console.log(`spawn (testapp): npm start -- --prod`)
-  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp` })
+  const proc = spawn(`./node_modules/.bin/ng`, [ `serve`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp` })
   proc.stdout.on('data', data => {
     console.log(data + '')
     if (/webpack: Compiled successfully\./.test(data)) proc.emit('ng:ready')
@@ -16,14 +16,14 @@ function runServer () {
 
 // install testapp's dependencies
 async function prepare () {
-  console.log(`exec (bugsnag-angular): npm run build`)
-  await promisify(exec)(`npm run build`)
-  console.log(`exec (bugsnag-angular): npm pack`)
-  await promisify(exec)(`npm pack`)
-  console.log(`exec (testapp): npm install`)
-  await promisify(exec)(`npm install`, { cwd: `${__dirname}/test/testapp` })
-  console.log(`exec (testapp): npm install ../../bugsnag-angular-${version}.tgz`)
-  await promisify(exec)(`npm install ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/test/testapp` })
+  // console.log(`exec (bugsnag-angular): npm run build`)
+  // await promisify(exec)(`npm run build`)
+  // console.log(`exec (bugsnag-angular): npm pack`)
+  // await promisify(exec)(`npm pack`)
+  // console.log(`exec (testapp): npm install`)
+  // await promisify(exec)(`npm install`, { cwd: `${__dirname}/test/testapp` })
+  // console.log(`exec (testapp): npm install ../../bugsnag-angular-${version}.tgz`)
+  // await promisify(exec)(`npm install ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/test/testapp` })
 }
 
 // kick it all off
@@ -35,7 +35,9 @@ async function go () {
     const ngServeProcess = runServer()
       .on('ng:ready', async () => {
         console.log('ng serve (testapp): ready')
-        process.kill(`-${ngServeProcess.pid}`)
+        // process.kill(`-${ngServeProcess.pid}`)
+        console.log(`kill -s KILL ${ngServeProcess.pid}`)
+        exec(`kill -s KILL ${ngServeProcess.pid}`)
       })
   } catch (e) {
     throw e

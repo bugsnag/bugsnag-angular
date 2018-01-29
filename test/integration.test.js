@@ -18,6 +18,7 @@ async function prepare () {
   await promisify(exec)(`npm install ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/testapp` })
 }
 
+// run ng serve
 function runServer () {
   console.log(`spawn (testapp): npm start -- --prod`)
   const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/testapp` })
@@ -28,6 +29,8 @@ function runServer () {
   return proc
 }
 
+// kick it all off
+// waits for the ng server to be ready before running the tests
 async function go () {
   try {
     await prepare()
@@ -42,11 +45,13 @@ async function go () {
   }
 }
 
+// kills long running ng serve process (if running)
 function killServer () {
   if (ngServeProcess) ngServeProcess.kill()
   ngServeProcess = null
 }
 
+// add test harness
 function addTests () {
   console.log('test harness: adding tests')
 

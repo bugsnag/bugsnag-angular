@@ -35,7 +35,7 @@ async function go () {
     const ngServeProcess = runServer()
       .on('ng:ready', async () => {
         console.log('ng serve (testapp): ready')
-        process.kill(-ngServeProcess.pid)
+        process.kill(`-${ngServeProcess.pid}`)
       })
   } catch (e) {
     throw e

@@ -10,7 +10,7 @@
     "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
     "build": "ngc -p .",
     "lint": "tslint -p .",
-    "test": "node ngserver"
+    "test": "node test/integration.test.js"
   },
   "repository": {
     "type": "git",

@@ -20,8 +20,8 @@ async function prepare () {
 
 // run ng serve
 function runServer () {
-  console.log(`spawn (testapp): npm start -- --prod`)
-  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/testapp` })
+  console.log(`spawn (testapp): ng serve --prod`)
+  const proc = spawn(`ng`, [ `serve`, `--prod` ], { cwd: `${__dirname}/testapp` })
   proc.stdout.on('data', data => {
     if (/webpack: Compiled successfully\./.test(data)) proc.emit('ng:ready')
   })
@@ -99,7 +99,3 @@ function addTests () {
 }
 
 go()
-
-setTimeout(function () {
-  process.kill(process.pid, 'SIGINT')
-}, 1000 * 60 * 3)

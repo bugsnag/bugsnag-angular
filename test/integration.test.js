@@ -58,17 +58,18 @@ function addTests () {
 
     puppeteer.launch()
       .then(async browser => {
+        const page = await browser.newPage()
+
         const end = async err => {
           console.log('test: end', err ? '(with err)' : '(without err)')
-          /*await */browser.close()
+          await page.close()
+          await browser.close()
           browser.disconnect()
           console.log('test: browser closed')
           killServer()
           console.log('test: server stopped')
           t.end(err)
         }
-
-        const page = await browser.newPage()
 
         page.on('console', async msg => {
           try {

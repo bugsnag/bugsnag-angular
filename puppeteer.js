@@ -1,0 +1,12 @@
+const puppeteer = require('puppeteer')
+console.log('start')
+puppeteer.launch()
+  .then(async browser => {
+    console.log('browser loaded')
+    const page = await browser.newPage()
+    console.log('navigating')
+    await page.goto('http://google.com')
+    console.log('title', await page.title())
+    await browser.close()
+    console.log('closed')
+  })

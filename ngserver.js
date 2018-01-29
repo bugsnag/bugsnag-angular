@@ -5,13 +5,12 @@ const { exec, spawn } = require('child_process')
 // run ng serve
 function runServer () {
   console.log(`spawn (testapp): npm start -- --prod`)
-  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp`, detached: true })
+  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp` })
   proc.stdout.on('data', data => {
     console.log(data + '')
     if (/webpack: Compiled successfully\./.test(data)) proc.emit('ng:ready')
   })
   proc.stderr.on('data', data => console.log('' + data))
-  proc.unref()
   return proc
 }
 
@@ -36,8 +35,7 @@ async function go () {
     const ngServeProcess = runServer()
       .on('ng:ready', async () => {
         console.log('ng serve (testapp): ready')
-        console.log((await promisify(exec)('ps')).stdout)
-        ngServeProcess.kill('SIGINT')
+        process.kill(-ngServeProcess.pid)
       })
   } catch (e) {
     throw e

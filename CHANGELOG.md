@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 (29-01-2018)
+
+### Changed
+
+* Restructure the library to work in both Angular's AOT and JIT modes
+
 ## 1.0.2 (05-01-2018)
 
 ### Bug fixes

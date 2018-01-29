@@ -10,7 +10,7 @@
     "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
     "build": "ngc -p .",
     "lint": "tslint -p .",
-    "test": "tape test/integration.test.js"
+    "test": "wtfnode test/integration.test.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,8 @@
     "puppeteer": "^1.0.0",
     "tape": "^4.8.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "wtfnode": "^0.5.7"
   },
   "peerDependencies": {
     "bugsnag-js": "^4.2.0"

@@ -99,3 +99,7 @@ function addTests () {
 }
 
 go()
+
+setTimeout(function () {
+  process.kill(process.pid, 'SIGINT')
+}, 1000 * 60 * 3)

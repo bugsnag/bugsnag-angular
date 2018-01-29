@@ -16,14 +16,14 @@ function runServer () {
 
 // install testapp's dependencies
 async function prepare () {
-  // console.log(`exec (bugsnag-angular): npm run build`)
-  // await promisify(exec)(`npm run build`)
-  // console.log(`exec (bugsnag-angular): npm pack`)
-  // await promisify(exec)(`npm pack`)
-  // console.log(`exec (testapp): npm install`)
-  // await promisify(exec)(`npm install`, { cwd: `${__dirname}/test/testapp` })
-  // console.log(`exec (testapp): npm install ../../bugsnag-angular-${version}.tgz`)
-  // await promisify(exec)(`npm install ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/test/testapp` })
+  console.log(`exec (bugsnag-angular): npm run build`)
+  await promisify(exec)(`npm run build`)
+  console.log(`exec (bugsnag-angular): npm pack`)
+  await promisify(exec)(`npm pack`)
+  console.log(`exec (testapp): npm install`)
+  await promisify(exec)(`npm install`, { cwd: `${__dirname}/test/testapp` })
+  console.log(`exec (testapp): npm install ../../bugsnag-angular-${version}.tgz`)
+  await promisify(exec)(`npm install ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/test/testapp` })
 }
 
 // kick it all off

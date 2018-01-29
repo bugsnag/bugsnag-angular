@@ -1,6 +1,6 @@
 {
   "name": "bugsnag-angular",
-  "version": "1.0.2",
+  "version": "2.0.0-1",
   "description": "Angular integration for bugsnag-js",
   "main": "dist/index.js",
   "browser": "dist/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "preversion": "npm run test",
     "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
-    "build": "tsc -p .",
+    "build": "ngc -p .",
     "lint": "tslint -p .",
     "test": "echo TODO"
   },
@@ -25,12 +25,12 @@
   "devDependencies": {
     "@angular/core": "^5.0.3",
     "angular": "^1.6.7",
-    "bugsnag-js": "^4.0.3",
+    "bugsnag-js": "^4.2.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2"
   },
   "peerDependencies": {
-    "bugsnag-js": "^4.0.3"
+    "bugsnag-js": "^4.2.0"
   },
   "dependencies": {
     "rxjs": "^5.5.2",

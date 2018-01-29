@@ -1,39 +1,38 @@
-import { ErrorHandler, Injectable } from "@angular/core";
-import { Bugsnag } from "bugsnag-js";
+import { Bugsnag } from 'bugsnag-js';
+import { ErrorHandler, Injectable } from '@angular/core';
 
-function createPlugin(): Bugsnag.IPlugin {
-  return {
-    init: (client: Bugsnag.Client): typeof ErrorHandler => {
-      @Injectable()
-      class BugsnagErrorHandler extends ErrorHandler {
-        public handleError(error: any) {
-          const handledState = {
-            severity: "error",
-            severityReason: { type: "unhandledException" },
-            unhandled: true,
-          };
+@Injectable()
+export class BugsnagErrorHandler extends ErrorHandler {
+  bugsnagClient: Bugsnag.Client;
+  constructor (bugsnagClient: Bugsnag.Client) {
+    super()
+    this.bugsnagClient = bugsnagClient
+  }
 
-          const report = new client.BugsnagReport(
-            error.name,
-            error.message,
-            client.BugsnagReport.getStacktrace(error),
-            handledState,
-          );
+  public handleError(error: any): void {
+    const handledState = {
+      severity: "error",
+      severityReason: { type: "unhandledException" },
+      unhandled: true,
+    };
 
-          if (error.ngDebugContext) {
-            report.updateMetaData("angular", {
-              component: error.ngDebugContext.component,
-              context: error.ngDebugContext.context,
-            });
-          }
+    const report = new this.bugsnagClient.BugsnagReport(
+      error.name,
+      error.message,
+      this.bugsnagClient.BugsnagReport.getStacktrace(error),
+      handledState,
+    );
 
-          client.notify(report);
-          ErrorHandler.prototype.handleError.call(this, error);
-        }
-      }
-      return BugsnagErrorHandler;
-    },
-  };
+    if (error.ngDebugContext) {
+      report.updateMetaData("angular", {
+        component: error.ngDebugContext.component,
+        context: error.ngDebugContext.context,
+      });
+    }
+
+    this.bugsnagClient.notify(report);
+    ErrorHandler.prototype.handleError.call(this, error);
+  }
 }
 
-export default createPlugin;
+export default BugsnagErrorHandler;

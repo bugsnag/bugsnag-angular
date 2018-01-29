@@ -5,7 +5,7 @@ const { exec, spawn } = require('child_process')
 // run ng serve
 function runServer () {
   console.log(`spawn (testapp): npm start -- --prod`)
-  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp` })
+  const proc = spawn(`npm`, [ `start`, `--`, `--prod` ], { cwd: `${__dirname}/test/testapp`, detached: true })
   proc.stdout.on('data', data => {
     console.log(data + '')
     if (/webpack: Compiled successfully\./.test(data)) proc.emit('ng:ready')

@@ -32,12 +32,12 @@ async function prepare () {
 async function go () {
   try {
     await prepare()
-    console.log('ng serve (testapp): start')
-    const ngServeProcess = runServer()
-      .on('ng:ready', () => {
-        console.log('ng serve (testapp): ready')
-        ngServeProcess.kill('SIGINT')
-      })
+    // console.log('ng serve (testapp): start')
+    // const ngServeProcess = runServer()
+    //   .on('ng:ready', () => {
+    //     console.log('ng serve (testapp): ready')
+    //     ngServeProcess.kill('SIGINT')
+    //   })
   } catch (e) {
     throw e
   }

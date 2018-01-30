@@ -31,6 +31,7 @@ export function errorHandlerFactory() {
   return new BugsnagErrorHandler(bugsnagClient)
 }
 
+import { ErrorHandler, NgModule } from '@angular/core'
 // ... other imports omitted for brevity
 
 @NgModule({

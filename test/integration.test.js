@@ -12,10 +12,10 @@ async function prepare () {
   await promisify(exec)(`npm run build`)
   console.log(`exec (bugsnag-angular): npm pack`)
   await promisify(exec)(`npm pack`)
-  console.log(`exec (testapp): npm install`)
-  await promisify(exec)(`npm install`, { cwd: `${__dirname}/testapp` })
-  console.log(`exec (testapp): npm install --no-save ../../bugsnag-angular-${version}.tgz`)
-  await promisify(exec)(`npm install --no-save ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/testapp` })
+  console.log(`exec (testapp): npm install --no-package-lock`)
+  await promisify(exec)(`npm install --no-package-lock`, { cwd: `${__dirname}/testapp` })
+  console.log(`exec (testapp): npm install --no-save --no-package-lock bugsnag-js@latest ../../bugsnag-angular-${version}.tgz`)
+  await promisify(exec)(`npm install --no-save --no-package-lock bugsnag-js@latest ../../bugsnag-angular-${version}.tgz`, { cwd: `${__dirname}/testapp` })
 }
 
 // run ng serve

@@ -1,14 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import BugsnagErrorHandler from 'bugsnag-angular';
-import bugsnag from 'bugsnag-js';
+import bugsnagClient from './bugsnag';
 
-const bugsnagClient = bugsnag('API_KEY')
 export function errorHandlerFactory() {
   return new BugsnagErrorHandler(bugsnagClient)
 }
 
 import { AppComponent } from './app.component';
+
+// below is a basic manual notification to Bugsnag, akin to logging.
+bugsnagClient.notify(new Error('Root module loaded.'), {
+  // This notification would be sent with severity: 'warning' by default, but you can modify this (and many other) attribute before sending.
+  severity: 'info'
+  });
+
+// for an even simpler notification, try:
+// bugsnagClient.notify("Something");
 
 @NgModule({
   declarations: [

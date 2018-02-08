@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import the bugsnag-js client you initialized in bugsnag.ts
 import bugsnagClient from './bugsnag';
 
 @Component({
@@ -29,12 +30,12 @@ export class AppComponent {
     try {
       // potentially buggy code goes here
       //for this example, we're just throwing an error explicitly, but you do not need this syntax in your try clause.
+      var niceCode = "Everything is fine here.";
       throw("Bad thing!");
     } catch (e) {
       // below modifies the handled error, and then sends it to your dashboard.
-
       bugsnagClient.notify(e, {
-        context: 'Don\'t worry - I handled it.'
+          context: 'Don\'t worry - I handled it!'
       });
     }
     // resets the button

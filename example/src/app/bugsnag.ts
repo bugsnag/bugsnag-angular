@@ -23,8 +23,8 @@ const bugsnagClient = bugsnag({
 
   // one of the most powerful tools in our library, beforeSend lets you evaluate, modify, add and remove data on an error right before it is sent to bugsnag. The actions here will be applied to *all* errors, handled and unhandled.
   beforeSend: function (report) {
-    if (report.errorClass === "Error") {
-      report.context = report.errorClass + report.errorMessage
+    if (report.errorClass === "Error" && report.severity === "info") {
+      report.errorClass = report.errorMessage
     }
     // note that if you return false from the beforeSend, this will cancel the entire error report.
   },
@@ -44,6 +44,8 @@ const bugsnagClient = bugsnag({
   },
 
 });
+
+// review app.component.ts to see examples of how this client can interact with your code.
 
 // See our documentation for futher options and examples https://docs.bugsnag.com/
 export default bugsnagClient;

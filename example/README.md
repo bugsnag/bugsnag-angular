@@ -21,7 +21,7 @@ API token with your own!
 
 1. Clone the repo and `cd` this this directory:
     ```sh
-    git clone git@github.com:bugsnag/bugsnag-angular.git
+    git clone https://github.com/bugsnag/bugsnag-angular.git
     cd bugsnag-angular/example
     ```
 1. Install the dependencies (with either npm or yarn):
@@ -31,7 +31,7 @@ API token with your own!
     ```sh
     yarn
     ```
-1. Replace the `API_KEY` placeholder in [app.module.ts](src/app/app.module.ts) with your actual API key.
+1. Replace the `API_KEY` placeholder in [bugsnag.ts](src/app/bugsnag.ts) with your actual API key.
 1. Build the application and start the development web server:
     ```sh
     npm start

@@ -34,6 +34,6 @@ API token with your own!
 1. Replace the `API_KEY` placeholder in [bugsnag.ts](src/app/bugsnag.ts) with your actual API key.
 1. Build the application and start the development web server:
     ```sh
-    ng serve
+    npm start
     ```
 1. View the example page which will (most likely) be served at: http://localhost:4200/

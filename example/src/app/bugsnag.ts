@@ -23,7 +23,7 @@ const bugsnagClient = bugsnag({
 
   // one of the most powerful tools in our library, beforeSend lets you evaluate, modify, add and remove data on an error right before it is sent to bugsnag. The actions here will be applied to *all* errors, handled and unhandled.
   beforeSend: function (report) {
-    if (report.errorClass === "Error" && report.severity === "info") {
+    if (report.errorClass === 'Error' && report.severity === 'info') {
       report.errorClass = report.errorMessage
     }
     // note that if you return false from the beforeSend, this will cancel the entire error report.
@@ -31,16 +31,16 @@ const bugsnagClient = bugsnag({
 
   // add any custom attributes relevant to your app. Note that metadata can be added here, in a specific notify (example bleow) or in a beforeSend.
   metaData: {company: {
-      name: "Hogwarts School of Witchcraft and Wizardry"
+      name: 'Hogwarts School of Witchcraft and Wizardry'
     }
   },
   // N.B. our notifer automatically creates a metadata tab called "Angular" and populates it with component and context details.
 
   // attached any user data you'd like to report.
   user: {
-    name: "Katherine Johnson",
-    email: "kj@nasa.gov",
-    id: "0112358"
+    name: 'Katherine Johnson',
+    email: 'kj@nasa.gov',
+    id: '0112358'
   },
 
 });

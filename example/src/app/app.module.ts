@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 bugsnagClient.notify(new Error('Root module loaded.'), {
   // This notification would be sent with severity: 'warning' by default, but you can modify this (and many other) attribute before sending.
   severity: 'info'
-  });
+});
 
 // for an even simpler notification, try:
 // bugsnagClient.notify("Something");

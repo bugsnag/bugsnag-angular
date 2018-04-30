@@ -1,3 +1,4 @@
 node_modules
 dist
 bugsnag-angular-*.tgz
+src/index.ngsummary.json

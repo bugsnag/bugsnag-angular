@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1 (30-04-2018)
+
+### Fixed
+
+* Angular v4 support. We now use `ngc` version 4 to compile the built assets. The v5 compiler output was not backwards-compatible with v4 apps. v4 compiler assets are compatible with v4 and v5 apps.
+
 ## 2.0.0 (29-01-2018)
 
 ### Changed
